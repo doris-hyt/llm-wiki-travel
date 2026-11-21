@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江之島新手導覽</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+:root{--bg:#efe9df;--paper:#fdfaf4;--ink:#262b30;--muted:#6b665d;--line:#ddd5c5;--on-photo:#ffffff;--scrim:rgba(12,20,30,.62);--tg-off:#2f6b4a;--tg-site:#2b4a7a;--tg-map:#6b4a8a;--tg-multi:#4d6b2a;--tg-one:#85601a;--tg-none:#b03a2c;--tg-mine:#6b665d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121519;--paper:#1e2229;--ink:#ece6d8;--muted:#a8a091;--line:#3a424d;--tg-off:#7fcf9f;--tg-site:#9db7dd;--tg-map:#c4a5e6;--tg-multi:#b4d77f;--tg-one:#e3c070;--tg-none:#ee7a6a;--tg-mine:#a8a091;color-scheme:dark}:root:not([data-theme="light"]) .slide{--ac:var(--ac-dk)}}
+:root[data-theme="dark"]{--bg:#121519;--paper:#1e2229;--ink:#ece6d8;--muted:#a8a091;--line:#3a424d;--tg-off:#7fcf9f;--tg-site:#9db7dd;--tg-map:#c4a5e6;--tg-multi:#b4d77f;--tg-one:#e3c070;--tg-none:#ee7a6a;--tg-mine:#a8a091;color-scheme:dark}
+:root[data-theme="dark"] .slide{--ac:var(--ac-dk)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center}
+.slide{--ac:var(--ac-l);--tint:color-mix(in srgb,var(--ac) 9%,var(--paper));position:absolute;inset:0;background:var(--paper);padding:38px 56px 0;display:none;flex-direction:column;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.slide.active{display:flex}
+.deco{position:absolute;border-radius:50%;background:var(--ac);pointer-events:none}
+.d1{width:16px;height:16px;right:26px;top:24px;opacity:.55}.d2{width:9px;height:9px;right:50px;top:44px;opacity:.3}.d3{width:12px;height:12px;left:22px;bottom:20px;opacity:.3}
+header{display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid color-mix(in srgb,var(--ac) 50%,transparent);padding-bottom:12px;margin-bottom:18px}
+.dot{flex:none;width:20px;height:20px;border-radius:50%;background:var(--ac);align-self:center}
+h1,h2,h3{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-weight:900;text-wrap:balance}
+h2{font-size:35px;line-height:1.2;white-space:nowrap}
+.sub{font-size:18.5px;color:var(--muted);flex:1;min-width:0}
+.badge{flex:none;align-self:center;font-size:14px;font-weight:700;padding:3px 12px;border-radius:999px}
+.badge.ok{color:var(--tg-off);border:1.5px solid var(--tg-off)}
+.cols{display:flex;gap:30px;min-height:0}.col{flex:1;min-width:0}
+.col.l{flex:0 0 650px}.col.r{flex:1}
+.ph{position:relative;width:100%;border-radius:16px;overflow:hidden;background:var(--tint)}
+.ph>img{width:100%;height:100%;object-fit:cover;display:block}
+.inset{position:absolute;left:12px;bottom:12px;width:170px;height:122px;border-radius:12px;overflow:hidden;border:3px solid var(--paper)}
+.inset img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{font-size:12.5px;color:var(--muted);margin:5px 2px 8px}
+ul.hi{list-style:none;font-size:18px;line-height:1.5}
+ul.hi li,.card li{padding-left:18px;position:relative}
+ul.hi li::before,.card li::before{content:"";position:absolute;left:3px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ac)}
+table.info{width:100%;border-collapse:collapse;font-size:19px;line-height:1.45}
+table.info th,table.info td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+table.info th{color:var(--ac);font-weight:700;white-space:nowrap;width:1%;padding-right:14px}
+table.info.sm{font-size:17.5px}table.info.sm th{font-size:15.5px}table.info.sm td,table.info.sm th{padding-top:11px;padding-bottom:11px}
+table.info tr:first-child th,table.info tr:first-child td{border-top:2px solid var(--ac)}
+.tgs{display:block;margin-top:3px}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 7px;border-radius:4px;border:1.5px solid currentColor;margin:1px 6px 1px 0;white-space:nowrap;vertical-align:middle}
+.tag.off{color:var(--tg-off)}.tag.site{color:var(--tg-site)}.tag.map{color:var(--tg-map)}.tag.multi{color:var(--tg-multi)}.tag.one{color:var(--tg-one)}.tag.none{color:var(--tg-none)}.tag.mine{color:var(--tg-mine);border-style:dashed}
+.far{font-size:12px;font-weight:700;color:var(--tg-none);border:1.5px solid var(--tg-none);padding:1px 7px;border-radius:4px}
+.note{background:var(--tint);border-left:4px solid var(--ac);border-radius:0 10px 10px 0;padding:12px 18px;font-size:18.5px;line-height:1.5;margin-top:14px}
+.card{background:var(--tint);border-radius:14px;padding:13px 18px;margin-bottom:12px}
+.card h3{font-size:23px;margin-bottom:5px;color:var(--ac)}
+.card ul{list-style:none}.card li{font-size:20.5px;line-height:1.5}
+.ic-card{display:flex;gap:16px;align-items:flex-start}.ic{flex:none;width:46px;height:46px;margin-top:2px}
+.ln{fill:none;stroke:var(--ac);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.ln.thin{stroke-width:1.5;opacity:.6}
+.fillac{fill:color-mix(in srgb,var(--ac) 22%,transparent);stroke:var(--ac);stroke-width:2.5;stroke-linejoin:round}
+.illus{width:100%;height:190px;margin-bottom:10px}
+ul.big{list-style:none;font-size:25px;line-height:1.55}
+ul.big li{padding-left:28px;position:relative;margin-bottom:18px}
+ul.big li::before{content:"";position:absolute;left:2px;top:.62em;width:11px;height:11px;border-radius:50%;background:var(--ac)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:10px}
+.lg{display:flex;gap:14px;align-items:flex-start;background:var(--tint);border-radius:12px;padding:18px 16px}.lg p{font-size:20.5px;line-height:1.45}.lg .tag{flex:none;min-width:112px;text-align:center;font-size:14px;margin-top:3px}
+.routes{display:flex;flex-direction:column;gap:40px;margin:34px 0 16px}
+.route{display:flex;align-items:center;gap:0;font-size:22px}
+.route .from,.route .stn{flex:none;font-weight:700;padding:7px 16px;border-radius:999px;border:2px solid var(--ac);background:var(--paper)}
+.route .from{background:var(--ac);color:var(--paper);width:92px;text-align:center}
+.route .seg{flex:1;text-align:center;font-size:18.5px;color:var(--muted);border-bottom:2px dashed var(--ac);padding:0 8px 5px;margin-bottom:22px}
+.route em{flex:none;font-style:normal;font-weight:700;width:190px;text-align:right;font-size:25px}
+.row2{font-size:18px;color:var(--muted);margin-top:14px}
+.areas{display:flex;justify-content:space-between;position:relative;margin:2px 30px 14px}
+.areas::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed var(--ac)}
+.areas span{position:relative;background:var(--paper);border:2px solid var(--ac);border-radius:999px;padding:5px 18px;font-size:18px;font-weight:700}
+.areas .on{background:var(--ac);color:var(--paper)}
+table.grid{width:100%;border-collapse:separate;border-spacing:0;font-size:19.5px;line-height:1.45}
+table.grid th{background:color-mix(in srgb,var(--ac) 16%,var(--paper));text-align:left;padding:9px 12px;font-size:17px}
+table.grid th:first-child{border-radius:10px 0 0 10px}table.grid th:last-child{border-radius:0 10px 10px 0}
+table.grid td{padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.grid td:first-child{font-weight:700;white-space:nowrap}
+table.check{font-size:21px}table.check td{padding:20px 12px}table.check td:first-child{width:34px}table.check td:nth-child(2){font-weight:700;white-space:nowrap}
+.box{display:inline-block;width:20px;height:20px;border:2px solid var(--ac);border-radius:5px;vertical-align:-3px}
+.circs{display:flex;gap:18px;justify-content:space-between;margin:26px 0 20px}
+.circ{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.circ figure{width:190px;height:190px;border-radius:50%;overflow:hidden;border:5px solid color-mix(in srgb,var(--ac) 30%,var(--paper));margin-bottom:6px}
+.circ img{width:100%;height:100%;object-fit:cover;display:block}
+.circ b{font-size:20.5px}.circ span:not(.tag):not(.far){font-size:17.5px;color:var(--muted);line-height:1.4}
+.src{position:absolute;left:56px;right:56px;bottom:13px;font-size:13px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column}
+.src b{color:var(--ink);font-weight:700}
+.slide.cover{padding:0}.cover .deco{display:none}
+.cover img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,var(--scrim) 78%)}
+.cover-text{position:absolute;left:64px;right:64px;bottom:74px;color:var(--on-photo)}
+.kicker{font-size:19px;letter-spacing:.18em;font-weight:700;margin-bottom:10px}
+h1{font-size:84px;line-height:1.15}
+.lead{font-size:23px;margin-top:12px}
+.cover .src{color:var(--on-photo);border-top-color:rgba(255,255,255,.45);left:64px;right:64px}.cover .src b{color:var(--on-photo)}
+#nav{position:fixed;bottom:calc(8px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center;z-index:5}
+#nav button{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:5px 14px;border-radius:999px;cursor:pointer}
+#nav button:focus-visible{outline:3px solid var(--tg-site)}
+#bar{position:fixed;left:0;top:0;height:4px;background:var(--tg-none);width:0;transition:width .2s}
+
+.ac-cover{--ac-l:#1d51cd;--ac-dk:#5e87e8}
+.ac-naka{--ac-l:#aa4141;--ac-dk:#ca7272}
+.ac-hetsu{--ac-l:#aa5c40;--ac-dk:#c7836b}
+.ac-candle{--ac-l:#3374ae;--ac-dk:#619cd1}
+.ac-aqua{--ac-l:#1b74bb;--ac-dk:#4ca2e6}
+.ac-iwaya{--ac-l:#8f6514;--ac-dk:#e6b24c}
+.ac-iwaya2{--ac-l:#307a7e;--ac-dk:#6bc2c7}
+.ac-koko{--ac-l:#3175ba;--ac-dk:#5d98d5}
+.ac-uomi{--ac-l:#9d5d25;--ac-dk:#d8955a}
+.ac-tobi{--ac-l:#9b5f3b;--ac-dk:#c78d6b}
+.ac-madu{--ac-l:#a35c3e;--ac-dk:#c7866b}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="stage">
+<section class="slide ac-cover cover" data-src="index,江之島是什麼"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><img class="bg" src="../assets/kamakura-enoshima.jpg" alt="步道遠望江之島"><div class="scrim"></div><div class="cover-text"><p class="kicker">新手導覽 ・ 神奈川縣藤澤市</p><h1>第一次去江之島</h1><p class="lead">景點、餐飲、交通與住宿地區，每個資訊都標出它的來源。</p></div><div class="src"><span><b>圖片：</b>使用者提供（步道遠望江之島）。內容整理自 LLM Wiki。</span></div></section>
+<section class="slide ac-hetsu" data-src="meta"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>怎麼讀這份導覽</h2><p class="sub">每個欄位旁都有一個來源標籤</p></header><div class="legend"><div class="lg"><span class="tag off">官方已核對</span><p>店家或設施官網，由使用者剪藏提供</p></div><div class="lg"><span class="tag site">專門網站查證</span><p>旅遊專門網站標示官方確認或有監製單位；是網站的標示，無法獨立驗證</p></div><div class="lg"><span class="tag map">地圖實測</span><p>路線時間與座標，用 Google 地圖實際查詢（只看路線，不查班次）</p></div><div class="lg"><span class="tag multi">多來源一致</span><p>沒有官方資料，但兩個以上來源說法一致</p></div><div class="lg"><span class="tag one">單一來源</span><p>只有一個二手來源，沒有佐證</p></div><div class="lg"><span class="tag none">行前自行確認</span><p>沒有官方資料或沒查到；出發前請自行確認，並列在最後的「行前確認清單」</p></div></div><p class="note">標有<b>時間・地點已確認</b>的頁面：營業時間、公休與交通時間都有官方、專門網站或 Google 地圖的依據。其他欄位（費用、座位、預約等）若標<b>行前自行確認</b>，請照最後兩頁的清單再確認。每張下方的「來源」列寫出資料是誰提供的。</p></section>
+<section class="slide ac-cover" data-src="江之島是什麼"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>認識江之島</h2><p class="sub">一座與陸地相連的小島</p></header><div class="cols"><div class="col"><ul class="big"><li>神奈川縣藤澤市的小島：江島神社、洞窟、展望燈塔，和一條熱鬧的參道商店街。</li><li>退潮時可以徒步走過去；今天遊客主要走 1949 年建成的江の島弁天橋。</li><li>信仰是弁財天：1182 年源賴朝造了八臂弁財天，江戶時代成為藝能、音樂、智慧之神。</li></ul></div><div class="col side"><svg class="illus" viewBox="0 0 420 200" role="img" aria-label="小島與橋的示意圖"><path d="M0 150H420" class="ln"/><path d="M230 150C240 96 286 70 322 78C362 86 392 118 400 150Z" class="fillac"/><path d="M318 78V40M310 46H326M312 40H324" class="ln"/><path d="M20 150V132H232V150M60 132V150M100 132V150M140 132V150M180 132V150" class="ln"/><path d="M0 170q15-10 30 0t30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0" class="ln thin"/></svg><div class="card"><h3>江島神社三宮</h3><ul><li>奥津宮、中津宮、辺津宮</li></ul></div><div class="card"><h3>島上的自然</h3><ul><li>岩屋是海蝕洞，因土地隆起現在位在海面之上</li><li>西南端稚児ヶ淵的波蝕台，關東大地震時隆起約 1 公尺</li></ul></div></div></div><div class="src"><span><b>來源：</b>神奈川縣觀光協會「江島神社」、藤澤市「このまちアーカイブス」（Claude 查證用的工具摘要，不是原文全文；屬單一來源等級）。示意圖為自繪。</span></div></section>
+<section class="slide ac-koko" data-src="怎麼去江之島"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>怎麼去 ①</h2><p class="sub">目的地記住一個站名：片瀬江ノ島</p></header><div class="routes"><div class="route"><b class="from">新宿</b><span class="seg">小田急浪漫特快（江之島）直達，不用轉車</span><span class="stn">片瀬江ノ島</span><em>約 1 小時 7 分</em></div><div class="route"><b class="from">東京</b><span class="seg">JR 東海道本線</span><span class="stn">藤澤</span><span class="seg">小田急江之島線</span><span class="stn">片瀬江ノ島</span><em>約 1 小時</em></div><div class="route"><b class="from">橫濱</b><span class="seg">JR 東海道本線</span><span class="stn">藤澤</span><span class="seg">小田急江之島線</span><span class="stn">片瀬江ノ島</span><em>約 31 分</em></div></div><p class="row2"><span class="tag map">地圖實測</span>所需時間是查詢當下的班次，不是時刻表。票價與是否另付特急券：<span class="tag none">行前自行確認</span></p><p class="note">搭 JR 或小田急到藤澤後，也可以改搭江之電到「江ノ島」站，較慢、風景較好；所需時間 wiki 沒有。</p><div class="src"><span><b>來源：</b>Google 地圖路線查詢，2026-11-13（Claude 查證）。路線圖為自繪示意。</span><span class="where"><b>查證去處：</b>小田急電鐵官網（票價、特急券）；時刻不在查證範圍。</span></div></section>
+<section class="slide ac-cover" data-src="怎麼去江之島"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>怎麼去 ②</h2><p class="sub">三個車站，與周遊券</p></header><div class="cols"><div class="col r"><table class="info "><tr><th>三個車站</th><td>小田急「片瀬江ノ島」、江ノ島電鐵「江ノ島」、湘南モノレール「湘南江の島」；到江島神社都步行約 15–23 分<span class="tgs"><span class="tag one">單一來源</span></span></td></tr><tr><th>實測</th><td>片瀬江ノ島站 → 弁財天仲見世通：步行 13 分、約 900 公尺，路線經過江の島弁天橋<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr><tr><th>周遊券</th><td>小田急「江の島・鎌倉フリーパス」，新宿出發 1,640 日圓（2025 年 8 月的資料）<span class="tgs"><span class="tag one">單一來源</span><span class="tag none">行前自行確認：2026 現況</span></span></td></tr><tr><th>往鎌倉</th><td>從鎌倉站搭江ノ電約 20 分到鎌倉高校前站<span class="tgs"><span class="tag site">專門網站查證</span></span></td></tr></table></div><div class="col l"><figure class="ph" style="height:330px"><img class="" src="../assets/kamakura-enoshima.jpg" alt="步道遠望江之島"></figure><p class="cap">步道遠望江之島</p></div></div><div class="src"><span><b>來源：</b>神奈川縣觀光協會（三個車站）、Google 地圖 2026-11-10（步行實測）、fun-japan（周遊券，二手資料）、gltjp（往鎌倉高校前）；皆為 Claude 查證。圖片：使用者提供。</span><span class="where"><b>查證去處：</b>小田急電鐵、江ノ島電鐵官網（周遊券現價與適用範圍）。</span></div></section>
+<section class="slide ac-madu" data-src="住宿地區"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>住在哪</h2><p class="sub">住宿地區：先看你要待幾天</p></header><div class="areas"><span>新宿、東京</span><span>藤澤站</span><span class="on">江之島</span><span>由比之濱、長谷</span><span>鎌倉站</span></div><table class="grid"><tr><th>地區</th><th>優點</th><th>缺點</th></tr><tr><td>新宿、東京</td><td><span class="tag mine">我的整理</span>交通與購物選擇多</td><td><span class="tag mine">我的整理</span>去江之島要一段車程，早出晚歸</td></tr><tr><td>藤澤站附近</td><td><span class="tag mine">我的整理</span>離江之島近，早上不用趕車</td><td><span class="tag mine">我的整理</span>夜間可逛的地方較少</td></tr><tr><td>鎌倉站周邊</td><td><span class="tag one">單一來源</span>市中心，餐廳商店多，到東京約一小時</td><td><span class="tag mine">我的整理</span>要再搭車到江之島</td></tr><tr><td>由比之濱、長谷</td><td><span class="tag one">單一來源</span>靠海灘，江之電沿線</td><td>來源沒寫缺點</td></tr><tr><td>江之島附近</td><td><span class="tag one">單一來源</span>景點集中，適合看夕陽與夜景</td><td><span class="tag mine">我的整理</span>選擇較少</td></tr></table><p class="note">只去江之島一天，從東京或新宿當天來回即可；想看夕陽或夜間點燈住藤澤或江之島附近；江之島加鎌倉兩天，住鎌倉站周邊（我的整理）。住宿價格與評價沒有來源，不寫。</p><div class="src"><span><b>來源：</b>LIVE JAPAN「鎌倉住宿」（旅遊媒體，可靠度低；Claude 查證）；標「我的整理」者沒有來源。地區示意為自繪，不代表實際距離。</span><span class="where"><b>查證去處：</b>藤澤市觀光網站「住宿」頁、鎌倉市觀光協會住宿頁。</span></div></section>
+<section class="slide ac-naka" data-src="江之島弁財天仲見世通,江島神社邊津宮,江之島海蠟燭展望燈塔,新江之島水族館,江之島岩屋,鎌倉高校前平交道"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>景點總覽</h2><p class="sub">從弁財天仲見世通出發，各景點多遠</p><span class="badge ok">時間・地點已確認</span></header><div class="circs"><div class="circ"><figure><img class="" src="../assets/江島神社 邊津宮.png" alt="江島神社邊津宮"></figure><b>江島神社邊津宮</b><span>步行 5 分</span><span class="tag map">地圖實測</span></div><div class="circ"><figure><img class="" src="../assets/江之島海蠟燭.png" alt="海蠟燭展望燈塔"></figure><b>海蠟燭展望燈塔</b><span>步行 12 分</span><span class="tag map">地圖實測</span></div><div class="circ"><figure><img class="" src="../assets/新江之島水族館.png" alt="新江之島水族館"></figure><b>新江之島水族館</b><span>步行 15 分、大眾運輸 10 分</span><span class="tag map">地圖實測</span></div><div class="circ"><figure><img class="" src="../assets/江之島岩屋內.png" alt="江之島岩屋"></figure><b>江之島岩屋</b><span>步行 16 分</span><span class="tag map">地圖實測</span></div><div class="circ"><figure><img class="" src="../assets/江之電鎌倉高校前.png" alt="鎌倉高校前平交道"></figure><b>鎌倉高校前平交道</b><span>大眾運輸 18 分（步行 31 分）</span><span class="far">距離較遠</span><span class="tag map">地圖實測</span></div></div><p class="note">2026-11-10 約 18:00 以「立即出發」查詢；時間會隨班次與路況變動。</p><div class="src"><span><b>來源：</b>Google 地圖，2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>出發當天用 Google 地圖重查。</span></div></section>
+<section class="slide ac-naka" data-src="江之島弁財天仲見世通"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>弁財天仲見世通</h2><p class="sub">景點 ・ 參道商店街</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:410px"><img class="" src="../assets/江之島弁財天仲見世通.jpg" alt="弁財天仲見世通"></figure><p class="cap">圖中招牌可辨識「女夫饅頭」</p><ul class="hi"><li>章魚仙貝、女夫饅頭、吻仔魚軟冰淇淋</li><li>街底有石階通往江島神社</li></ul></div><div class="col r"><table class="info sm"><tr><th>開放</th><td>街道全天開放、無休（指街道本身）<span class="tgs"><span class="tag site">專門網站查證</span></span></td></tr><tr><th>各店時間</th><td>約 9:00–18:00；公休例：あさひ本店週四、紀の国屋本店週三<span class="tgs"><span class="tag one">單一來源（資料頁，可接受）</span><span class="tag none">行前自行確認：當日</span></span></td></tr><tr><th>費用</th><td>逛街免費；女夫饅頭 1 個 150 日圓<span class="tgs"><span class="tag one">單一來源</span></span></td></tr><tr><th>交通</th><td>片瀬江ノ島駅步行 13 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>gltjp（旅遊專門網站，標示官方確認；使用者提供）、るるぶ（資料頁；Claude 查證）、Google 地圖 2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>整條街沒有單一官網，各店時間看店家官網或當天現場。</span></div></section>
+<section class="slide ac-hetsu" data-src="江島神社邊津宮"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>江島神社 邊津宮</h2><p class="sub">景點 ・ 江之島最下方的神社，又稱下之宮</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:410px"><img class="" src="../assets/江島神社 邊津宮.png" alt="江島神社 邊津宮"></figure><p class="cap">邊津宮社殿</p><ul class="hi"><li>1206 年創建，供奉水與航海之神</li><li>錢洗白龍王（龍之錢洗）、茅之輪、結緣之樹</li><li>奉安殿供奉妙音弁財天、八臂弁財天</li></ul></div><div class="col r"><table class="info sm"><tr><th>參拜時間</th><td>8:30–17:00、無休；有御朱印<span class="tgs"><span class="tag site">專門網站查證</span></span></td></tr><tr><th>奉安殿拝觀</th><td>8:30–16:30；大人 200 日圓<span class="tgs"><span class="tag one">單一來源（機構頁，可接受）</span></span></td></tr><tr><th>參拜費用</th><td>沒有資料<span class="tgs"><span class="tag none">行前自行確認</span></span></td></tr><tr><th>交通</th><td>從仲見世通步行 5 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>gltjp（標示官方確認，監製：江島神社；使用者提供）、神奈川縣觀光協會（奉安殿）、Google 地圖 2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>江島神社官網辺津宮頁（參拜時間與費用）。</span></div></section>
+<section class="slide ac-candle" data-src="江之島海蠟燭展望燈塔"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>江之島海蠟燭 展望燈塔</h2><p class="sub">景點 ・ 展望室、夕陽與冬季燈飾</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:330px"><img class="" src="../assets/江之島海蠟燭.png" alt="江之島海蠟燭 展望燈塔"></figure><p class="cap">入口、燈塔與館內手扶梯</p><ul class="hi"><li>展望室與夕陽；展望室下有木製平台</li><li>冬季「湘南の宝石」燈飾主會場：去年度 2025-11-22 至 2026-02-28，今年度日期行前自行確認</li></ul></div><div class="col r"><table class="info sm"><tr><th>營業</th><td>9:00–20:00（最後入場 19:30）<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>費用</th><td>海蠟燭 大人 800、兒童 400 日圓；17:00 後入苑 大人 500、兒童 250 日圓<span class="tgs"><span class="tag off">官方已核對；有矛盾</span></span></td></tr><tr><th>休業日</th><td>通常無休；遇惡劣天候會中止營業，出發當天確認<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>交通</th><td>從仲見世通步行 12 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>海蠟燭官網「營業時間」「價格／門票」（官方，機翻頁；使用者提供）、江之電官方頁（休業日；使用者提供）、神奈川縣觀光協會（燈飾）、Google 地圖 2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>海蠟燭官網日文原頁；今年度燈飾日期看官網公告。</span></div></section>
+<section class="slide ac-aqua" data-src="新江之島水族館"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>新江之島水族館</h2><p class="sub">景點 ・ 室內景點，片瀬江ノ島站步行 3 分</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:410px"><img class="" src="../assets/新江之島水族館.png" alt="新江之島水族館"></figure><p class="cap">海豚表演池，遠方是江之島</p><ul class="hi"><li>大型行李不能帶入觀覽區，請用付費置物櫃</li><li>部分展示區禁用閃光燈、全館禁菸</li><li>憑票當日可再次入館；可免費租輪椅（數量有限）</li></ul></div><div class="col r"><table class="info sm"><tr><th>營業</th><td>3–11 月 9:00–17:00，12–2 月 10:00–17:00；最晚入場在閉館前 1 小時<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>費用</th><td>大人 2,800、高中生 1,800、中小學生 1,300、幼兒 900 日圓<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>公休</th><td>全年無休，設施檢查可能臨時休館<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>交通</th><td>從仲見世通步行 15 分、大眾運輸 10 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>新江之島水族館官網繁中版（官方；使用者提供）、Google 地圖 2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>水族館官網（出發前看當日公告）。</span></div></section>
+<section class="slide ac-iwaya" data-src="江之島岩屋"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>江之島岩屋</h2><p class="sub">景點 ・ 海蝕洞窟</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:406px"><img class="" src="../assets/江之島岩屋內.png" alt="江之島岩屋"><figure class="inset"><img class="" src="../assets/江之島岩屋.png" alt=""></figure></figure><p class="cap">洞內步道；小圖是洞口外觀</p><ul class="hi"><li>第一岩屋約 152 公尺，可免費租蠟燭進洞</li><li>洞內濕滑，建議穿好走的鞋；洞內沒有洗手間、投幣式寄物櫃</li></ul></div><div class="col r"><table class="info sm"><tr><th>入窟費</th><td>一般 500、小學生 200 日圓；20 人以上 8 折<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>開放與公休</th><td>9:00–17:00（依季節而異）；無休<span class="tgs"><span class="tag off">官方已核對</span><span class="tag site">專門網站查證</span></span></td></tr><tr><th>參觀時間</th><td>約 30 分（15–40 分）<span class="tgs"><span class="tag multi">多來源一致</span></span></td></tr><tr><th>悪天候</th><td>是否封閉沒有資料；天候不佳先確認<span class="tgs"><span class="tag none">行前自行確認</span></span></td></tr><tr><th>交通</th><td>從仲見世通步行 16 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>藤澤市觀光公式網站（官方；使用者提供）、gltjp（標示官方確認；使用者提供）、boo2k 部落格與 banzokubiology（參觀時間）、Google 地圖 2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>藤澤市觀光網站首頁公告；岩屋 Facebook 專頁。</span></div></section>
+<section class="slide ac-koko" data-src="鎌倉高校前平交道"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>鎌倉高校前平交道</h2><p class="sub">景點 ・ 電車與海景同框</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:410px"><img class="" src="../assets/江之電鎌倉高校前.png" alt="鎌倉高校前平交道"></figure><p class="cap">江之電沿海行駛，遠方是江之島</p><ul class="hi"><li>望見七里濱、江之島與三浦半島</li><li>是一般道路與平交道，不進軌道</li><li>不長時間佔用公共空間拍照、垃圾自行帶走</li></ul></div><div class="col r"><table class="info sm"><tr><th>開放</th><td>公共道路，沒有營業時間<span class="tgs"><span class="tag site">專門網站查證</span></span></td></tr><tr><th>拍照規定</th><td>2025-10 鎌倉市增派警衛，請到附近公園拍攝區<span class="tgs"><span class="tag multi">多來源一致；現況待查證</span></span></td></tr><tr><th>交通</th><td>江ノ電鎌倉高校前駅步行約 1 分；從仲見世通大眾運輸 18 分<span class="tgs"><span class="tag map">地圖實測</span><span class="tag one">單一來源</span></span></td></tr><tr><th>官網</th><td>尚未找到官網<span class="tgs"><span class="tag none">行前自行確認</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>gltjp（標示官方確認；使用者提供）、神奈川新聞（拍照規定；Claude 查證）、Google 地圖 2026-11-10（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>鎌倉市官方公告（現況的警衛與拍照規定）。</span></div></section>
+<section class="slide ac-uomi" data-src="江之島魚見亭"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>江之島 魚見亭</h2><p class="sub">餐廳 ・ 島西側高處的海鮮餐廳</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:410px"><img class="" src="../assets/江之島魚亭.png" alt="江之島 魚見亭"></figure><p class="cap">店門口</p><ul class="hi"><li>官網說有 150 年以上歷史（部落格寫 140 年，有矛盾）</li><li>天氣好可坐露台</li><li>顧客提到江之島丼定食、吻仔魚丼；菜單價格待查證</li></ul></div><div class="col r"><table class="info sm"><tr><th>營業</th><td>10:00–17:00（最後點餐）；颱風、暴雨警報等不定期休息<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>費用</th><td>平均消費 1,500 日圓起<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>座位與預約</th><td>140 個座位；不接受預約，用餐時間要抽號碼牌排隊<span class="tgs"><span class="tag off">官方已核對</span><span class="tag one">單一來源</span></span></td></tr><tr><th>交通</th><td>從仲見世通步行 12 分；到 Cafe Madu 步行 3 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>魚見亭官網「店鋪概覽」（官方；使用者提供）、boo2k 部落格（排隊方式；使用者提供）、Google 地圖 2026-11-13（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>魚見亭官網（當日是否營業）。</span></div></section>
+<section class="slide ac-tobi" data-src="江之島とびっちょ本店"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>海鮮丼 とびっちょ 本店</h2><p class="sub">餐廳 ・ 生白魚乾丼專門店</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:410px"><img class="" src="../assets/とびっちょ 本店.png" alt="海鮮丼 とびっちょ 本店"></figure><p class="cap">店面與招牌</p><ul class="hi"><li>生しらす丼只用當天在地水揚的生白魚乾</li><li>とびっちょ丼是赤醋飯搭 8 種以上依進貨而變的海鮮</li><li>生しらす丼在禁漁期（1 月至 3 月中旬）與不漁時不提供</li></ul></div><div class="col r"><table class="info sm"><tr><th>營業</th><td>11:00–21:00；最後點餐 平日 20:00、週六日假日 20:30；無休，荒天可能休息<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>費用</th><td>生しらす丼 1,380、とびっちょ丼 2,530 日圓（稅込）<span class="tgs"><span class="tag off">官方已核對</span></span></td></tr><tr><th>座位與預約</th><td>官網沒寫<span class="tgs"><span class="tag none">行前自行確認</span></span></td></tr><tr><th>交通</th><td>從魚見亭步行 15 分<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>とびっちょ官網「江の島本店」店舖頁（官方；使用者提供）、Google 地圖 2026-11-13（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>店家 X 公告（當日是否營業）；官網補座位與預約。</span></div></section>
+<section class="slide ac-madu" data-src="江之島CafeMadu"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>Cafe Madu 江の島店</h2><p class="sub">咖啡廳 ・ 高台上的自助式咖啡廳</p><span class="badge ok">時間・地點已確認</span></header><div class="cols"><div class="col l"><figure class="ph" style="height:238px"><img class="" src="../assets/CafeMadu ENOSHIMA.png" alt="Cafe Madu 江の島店"></figure><p class="cap">露台座位</p><ul class="hi"><li>可一覽相模灣的一軒屋咖啡廳，有露台</li><li>咖哩、白魚乾可麗餅、聖代</li><li>自助式；擁擠時段可能要等位</li></ul></div><div class="col r"><table class="info sm"><tr><th>營業</th><td>平日 11:00–18:00（最後點餐 17:00）；週六日假日 10:00–19:00（最後點餐 18:00）<span class="tgs"><span class="tag off">官方已核對；有矛盾</span></span></td></tr><tr><th>座位</th><td>店內 42 席、露台 48 席<span class="tgs"><span class="tag off">官方已核對；有矛盾</span></span></td></tr><tr><th>預算</th><td>午餐、晚餐各約 1,800 日圓<span class="tgs"><span class="tag one">單一來源</span></span></td></tr><tr><th>交通</th><td>從魚見亭步行 3 分（180 公尺）<span class="tgs"><span class="tag map">地圖實測</span></span></td></tr></table></div></div><div class="src"><span><b>來源：</b>HAKKA GROUP 店舖頁（營運公司官網；使用者提供）、ぐるなび（預算；Claude 查證）、Google 地圖 2026-11-13（Claude 查證）。圖片：使用者提供（擷取自剪藏的網頁）。</span><span class="where"><b>查證去處：</b>營運公司 X 公告（休業日）；官網補菜單價格。</span></div></section>
+<section class="slide ac-hetsu" data-src="逛江之島的注意事項"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>逛江之島的注意事項</h2><p class="sub">出發前先知道這幾件事</p></header><div class="cols"><div class="col"><div class="card ic-card"><svg viewBox="0 0 40 40" class="ic"><circle cx="20" cy="20" r="15" class="ln"/><path d="M20 11V20L27 24" class="ln"/></svg><div><h3>時間與人潮</h3><ul><li>參道各店時間與公休不同，出發前再確認</li><li>あさひ本店前總是有長長的隊伍</li><li>魚見亭不接受預約，用餐時間可能排隊</li></ul></div></div><div class="card ic-card"><svg viewBox="0 0 40 40" class="ic"><path d="M5 33H13V25H21V17H29V9H36" class="ln"/></svg><div><h3>路況</h3><ul><li>參道是緩上坡，盡頭有石階，高度行前自行確認</li><li>岩屋洞內濕滑，建議穿好走的鞋</li><li>島入口有廁所與免費 Wi-Fi</li></ul></div></div></div><div class="col"><div class="card ic-card"><svg viewBox="0 0 40 40" class="ic"><circle cx="20" cy="20" r="15" class="ln"/><path d="M14 12L20 21L26 12M20 21V30M14 21H26M14 25H26" class="ln"/></svg><div><h3>費用一覽（日圓）</h3><ul><li>女夫饅頭 150；奉安殿 大人 200</li><li>海蠟燭 大人 800；水族館 大人 2,800</li><li>岩屋 大人 500；生しらす丼 1,380</li><li>魚見亭 平均 1,500 起</li></ul></div></div><p class="note">冬季燈飾「湘南の宝石」去年度是 2025-11-22 至 2026-02-28，今年度日期行前自行確認。</p></div></div><div class="src"><span><b>來源：</b>同前面各景點與餐廳頁的來源列；るるぶ（あさひ本店排隊）、gltjp（廁所與 Wi-Fi）、神奈川縣觀光協會（燈飾）為 Claude 查證。圖示為自繪。</span></div></section>
+<section class="slide ac-iwaya" data-src="待查證清單,江島神社邊津宮,江之島海蠟燭展望燈塔,江之島岩屋,江之島弁財天仲見世通"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>行前確認清單 ①</h2><p class="sub">景點：出發前要再確認的事</p></header><table class="grid check"><tr><th></th><th>景點</th><th>要確認什麼</th><th>去哪裡查</th></tr><tr><td><i class="box"></i></td><td>江島神社邊津宮</td><td>參拜費用；奉安殿費用與時間</td><td>江島神社官網辺津宮頁</td></tr><tr><td><i class="box"></i></td><td>海蠟燭</td><td>費用（江之電頁 500／250 與官網 800／400 不一致）；今年度燈飾日期</td><td>海蠟燭官網日文頁</td></tr><tr><td><i class="box"></i></td><td>江之島岩屋</td><td>悪天候是否封閉；每日實際開放時間</td><td>藤澤市觀光網站、岩屋 Facebook</td></tr><tr><td><i class="box"></i></td><td>弁財天仲見世通</td><td>各店營業時間與公休；Google 當日顯示至 20:00，與 9:00–18:00 不同</td><td>各店官網、現場</td></tr><tr><td><i class="box"></i></td><td>鎌倉高校前平交道</td><td>警衛與拍照規定的現況</td><td>鎌倉市官方公告</td></tr></table><div class="src"><span><b>來源：</b>wiki 的待查證清單（由各頁「查證狀態」表自動彙整）。這些是非核心欄位，不影響時間・地點已確認。</span></div></section>
+<section class="slide ac-tobi" data-src="待查證清單,怎麼去江之島,江之島魚見亭,江之島とびっちょ本店,江之島CafeMadu"><i class="deco d1"></i><i class="deco d2"></i><i class="deco d3"></i><header><span class="dot"></span><h2>行前確認清單 ②</h2><p class="sub">交通與餐飲：出發前要再確認的事</p></header><table class="grid check"><tr><th></th><th>項目</th><th>要確認什麼</th><th>去哪裡查</th></tr><tr><td><i class="box"></i></td><td>交通</td><td>特急券與票價；周遊券 2026 現況與適用範圍</td><td>小田急電鐵、江ノ島電鐵官網</td></tr><tr><td><i class="box"></i></td><td>魚見亭</td><td>當日是否營業</td><td>店家官網</td></tr><tr><td><i class="box"></i></td><td>とびっちょ 本店</td><td>座位數與預約；當日是否營業</td><td>店家官網、店家 X 公告</td></tr><tr><td><i class="box"></i></td><td>Cafe Madu</td><td>休業日；菜單與價格</td><td>營運公司官網與 X 公告</td></tr><tr><td><i class="box"></i></td><td>活動</td><td>冬季燈飾今年度日期；wiki 尚未收錄其他活動</td><td>藤澤市觀光網站、海蠟燭官網</td></tr></table><div class="src"><span><b>來源：</b>wiki 的待查證清單（由各頁「查證狀態」表自動彙整）。這些是非核心欄位，不影響時間・地點已確認。</span></div></section>
+</div>
+<div id="nav">
+  <button id="prev" aria-label="上一張">← 上一張</button>
+  <span id="count" style="font-size:16px;color:var(--muted)"></span>
+  <button id="next" aria-label="下一張">下一張 →</button>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var i=0;
+  try{ var h=parseInt(location.hash.replace('#',''),10); if(h>=1&&h<=slides.length) i=h-1; }catch(e){}
+  var stage=document.getElementById('stage');
+  function fit(){
+    var s=Math.min((window.innerWidth-32)/1280,(window.innerHeight-56)/720);
+    stage.style.transform='translate(-50%,-50%) scale('+s+')';
+  }
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(el,k){ el.classList.toggle('active',k===i); });
+    document.getElementById('count').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
+    try{ history.replaceState(null,'','#'+(i+1)); }catch(e){}
+  }
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1)}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1)}
+    else if(e.key==='Home'){show(0)} else if(e.key==='End'){show(slides.length-1)}
+  });
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){ if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50) show(i+(dx<0?1:-1)); x0=null; },{passive:true});
+  window.addEventListener('resize',fit);
+  fit(); show(i);
+})();
+</script>
+</body>
+</html>
