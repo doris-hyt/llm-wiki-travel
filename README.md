@@ -26,34 +26,6 @@
 用鍵盤左右鍵翻頁。原始檔：[`slides/enoshima-guide.html`](slides/enoshima-guide.html)
 
 ## Loop / Graph 流程圖與說明
-
-```mermaid
-flowchart LR
-  subgraph A["查證迴圈（ingest）"]
-    direction LR
-    A1[待查證清單] --> A2[補資料<br/>官網剪藏放進 inbox] --> A3[重新 ingest] --> A4{{重跑 build_todo}}
-    A4 -- 時間或地點仍缺 --> A1
-    A4 -- 非核心欄位無官方資料 --> A5[標「行前自行確認」後停止]
-  end
-
-  subgraph R["推薦迴圈"]
-    direction LR
-    R1[列出推薦<br/>Google 地圖實測時間] --> R2{使用者勾選或調整} --> R3[只為勾選的建頁]
-    R2 -- 換類型 --> R1
-  end
-
-  subgraph B["簡報迴圈（最多 3 輪）"]
-    direction LR
-    B1[產生簡報] --> B2{{check_slides.py<br/>＋截圖＋人工審查}}
-    B2 -- 寫錯：只重做該張 --> B1
-    B2 -- 通過 --> B3[交付]
-  end
-
-  R3 --> A3
-  A4 -- 資料足夠 --> B1
-  B2 -- 資料缺失：回頭補 wiki --> A1
-  B2 -- wiki 矛盾：回 Lint --> A4
-```
 ![流程圖](assets/flow_chart.png)
 
 - **查證迴圈（ingest）**：待查證清單 → 補資料 → 重新 ingest → 重跑 `build_todo.py`。時間或地點這類比較重要的欄位，會自行去官網查資料當作來源補進去，將景點資訊盡量補充完整。但費用、餐廳座位數、預約等欄位沒有官方資料時，標示「行前自行確認」就停止。
