@@ -21,9 +21,9 @@
 
 ## 教學 HTML 簡報連結
 
-👉 [開啟簡報：江之島新手導覽]
+👉 [開啟簡報：江之島新手導覽](https://doris-hyt.github.io/llm-wiki-travel/slides/enoshima-guide.html)
 
-用鍵盤左右鍵翻頁。原始檔：
+用鍵盤左右鍵翻頁。原始檔：[`slides/enoshima-guide.html`](slides/enoshima-guide.html)
 
 ## Loop / Graph 流程圖與說明
 

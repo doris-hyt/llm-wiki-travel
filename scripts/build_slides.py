@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""把 slides/src.html 的圖片嵌入，輸出單一檔案 slides/江之島新手導覽.html。"""
+"""把 slides/src.html 的圖片嵌入，輸出單一檔案 slides/enoshima-guide.html。"""
 import base64, io, os, re
 from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 src = os.path.join(ROOT, "slides", "src.html")
-out = os.path.join(ROOT, "slides", "江之島新手導覽.html")
+out = os.path.join(ROOT, "slides", "enoshima-guide.html")
 html = open(src, encoding="utf-8").read()
 def embed(m):
     path = os.path.normpath(os.path.join(os.path.dirname(src), m.group(1)))
